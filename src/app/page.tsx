@@ -19,8 +19,8 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
 
         <div className="absolute inset-0 grid place-items-center">
-          <div className="text-center text-white drop-shadow">
-            <h1 className="text-3xl sm:text-5xl font-medium tracking-tight">John Stoner</h1>
+          <div className="text-center text-white drop-shadow transform-gpu translate-y-5 sm:translate-y-14 -translate-x-[16px] sm:-translate-x-[48px]">
+            <h1 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-wide">John Stoner</h1>
             <p className="mt-4 max-w-xl px-4 text-sm sm:text-base text-white/90">
               All Art is Folk Art
             </p>
@@ -41,7 +41,7 @@ export default function Home() {
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
         <p className="max-w-3xl text-neutral-700">
-         Born in Santa Monica, California in 1972. All of my influences converge in my painting. There is art to be found everywhere.
+         John Stoner was born in Santa Monica, California in 1972. He has an MFA from the San Francisco Art Institute (SFAI), and has been painting since the late 1980's. John says,  "All of my influences converge in my painting. There is art to be found everywhere."
         </p>
       </section>
     </main>
