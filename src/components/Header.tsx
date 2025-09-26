@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="flex items-center justify-between py-6">
       <Link href="/" className="font-bold uppercase tracking-tight">
-        John Stoner
+        Henry Stoner
       </Link>
       <nav className="text-sm text-neutral-600">
         <ul className="flex gap-6">
