@@ -41,7 +41,8 @@ export default function Home() {
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
         <p className="max-w-3xl text-neutral-700">
-         Henry Stoner was born in Santa Monica, California in 1972. He has an MFA from the San Francisco Art Institute (SFAI), and has been painting since the late 1980's. Henry says,  "All of my influences converge in my painting. There is art to be found everywhere."
+         Henry Stoner was born in Santa Monica, California in 1972. He has an MFA from the San Francisco Art Institute (SFAI), and has been painting since the late 1980's. Henry was influenced by the burgeoning tattoo and street art culture of San Francisco in the 1990's and by folk artists using found materials. 
+         Henry says,  "All of my influences converge in my painting. There is art to be found everywhere."
         </p>
       </section>
     </main>
