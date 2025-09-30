@@ -1,0 +1,85 @@
+import Image from "next/image";
+import { cld } from "@/lib/cloudinary";
+
+const HERO_ID = "DSC_5435_wjaujb";
+
+export default function ContactPage() {
+  return (
+    <main>
+      <section className="relative h-[88svh] sm:h-[92svh] lg:h-[100svh]">
+        <Image
+          src={cld.full(HERO_ID, 3000, "fit", 85)}
+          alt="Contact page hero artwork"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
+
+        <div className="absolute inset-0 grid place-items-center">
+          <div className="absolute inset-0 flex items-end justify-start pb-16 pl-8 pr-4">
+            <h1 className="text-2xl sm:text-3xl font-extrabold uppercase text-white drop-shadow-lg max-w-xl leading-snug">
+                Please contact for price and availability regarding any specific art
+                works found on this site
+            </h1>
+        </div>
+
+        </div>
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center">
+          <span className="text-[10px] sm:text-xs tracking-widest text-white/90 bg-black/30 rounded-full px-3 py-1">
+            SCROLL
+          </span>
+        </div>
+      </section>
+
+      <section className="flex-1 max-w-2xl mx-auto w-full px-6 py-20">
+        <form className="space-y-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              className="mt-1 block w-full rounded-md border border-neutral-300 px-4 py-2 focus:border-black focus:ring-black"
+              required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="mt-1 block w-full rounded-md border border-neutral-300 px-4 py-2 focus:border-black focus:ring-black"
+              required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium">
+              Message
+            </label>
+            <textarea
+              id="message"
+              rows={5}
+              className="mt-1 block w-full rounded-md border border-neutral-300 px-4 py-2 focus:border-black focus:ring-black"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-neutral-800 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </section>
+    </main>
+  );
+}

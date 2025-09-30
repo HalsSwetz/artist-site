@@ -65,7 +65,7 @@ export default function GalleryPage() {
             layout="masonry"
             photos={photos}
             columns={3} 
-            spacing={14}
+            spacing={20}
             padding={0}
             onClick={({ index }) => setIndex(index)}
           />
