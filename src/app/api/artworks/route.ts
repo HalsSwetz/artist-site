@@ -25,7 +25,7 @@ export async function GET(req: Request) {
 
 
   const parts: string[] = ['resource_type:image', 'type:upload'];
-  if (folder && folder.trim()) parts.push(`folder="${folder.trim()}"`);
+  if (folder && folder.trim()) parts.push(`folder:"${folder.trim()}"`);
   if (tag && tag.trim()) parts.push(`tags="${tag.trim()}"`);
   const expression = parts.join(' AND ');
 

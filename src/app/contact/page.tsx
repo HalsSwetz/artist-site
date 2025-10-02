@@ -20,8 +20,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 grid place-items-center">
           <div className="absolute inset-0 flex items-end justify-start pb-16 pl-8 pr-4">
             <h1 className="text-2xl sm:text-3xl font-extrabold uppercase text-white drop-shadow-lg max-w-xl leading-snug">
-                Please contact for price and availability regarding any specific art
-                works found on this site
+                For pricing and available work please use contact form below
             </h1>
         </div>
 

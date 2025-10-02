@@ -33,7 +33,7 @@ export default function GalleryPage() {
 
   useEffect(() => {
   (async () => {
-    const res = await fetch("/api/artworks", { cache: "no-store" });
+    const res = await fetch("/api/artworks?folder=Art Site Gallery", { cache: "no-store" });
     const json = await res.json();
     setArtworks(json.artworks || []);
   })();
