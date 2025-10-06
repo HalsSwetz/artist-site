@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { cld } from "@/lib/cloudinary";
 
@@ -20,10 +22,9 @@ export default function ContactPage() {
         <div className="absolute inset-0 grid place-items-center">
           <div className="absolute inset-0 flex items-end justify-start pb-16 pl-8 pr-4">
             <h1 className="text-2xl sm:text-3xl font-extrabold uppercase text-white drop-shadow-lg max-w-xl leading-snug">
-                For pricing and available work please use contact form below
+              For pricing and available work please use contact form below
             </h1>
-        </div>
-
+          </div>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center">
@@ -34,7 +35,35 @@ export default function ContactPage() {
       </section>
 
       <section className="flex-1 max-w-2xl mx-auto w-full px-6 py-20">
-        <form className="space-y-6">
+        <form
+          className="space-y-6"
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const form = e.currentTarget;
+            const formData = new FormData(form);
+            
+            
+            const data = {
+              name: formData.get("name"),
+              email: formData.get("email"),
+              message: formData.get("message"),
+            };
+            
+
+            const res = await fetch("/contact/send", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+
+            if (res.ok) {
+              alert("Message sent successfully!");
+              form.reset();
+            } else {
+              alert("Something went wrong. Please try again later.");
+            }
+          }}
+        >
           <div>
             <label htmlFor="name" className="block text-sm font-medium">
               Name
@@ -42,6 +71,7 @@ export default function ContactPage() {
             <input
               type="text"
               id="name"
+              name="name"
               className="mt-1 block w-full rounded-md border border-neutral-300 px-4 py-2 focus:border-black focus:ring-black"
               required
             />
@@ -54,6 +84,7 @@ export default function ContactPage() {
             <input
               type="email"
               id="email"
+              name="email"
               className="mt-1 block w-full rounded-md border border-neutral-300 px-4 py-2 focus:border-black focus:ring-black"
               required
             />
@@ -65,10 +96,11 @@ export default function ContactPage() {
             </label>
             <textarea
               id="message"
+              name="message"
               rows={5}
               className="mt-1 block w-full rounded-md border border-neutral-300 px-4 py-2 focus:border-black focus:ring-black"
               required
-            />
+            ></textarea>
           </div>
 
           <button
