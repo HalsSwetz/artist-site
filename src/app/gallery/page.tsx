@@ -52,9 +52,9 @@ export default function GalleryPage() {
   const selected = index >= 0 && artworks ? artworks[index] : null;
 
   return (
-    <main className="px-4">
-      <div className="mx-auto max-w-6xl py-12 sm:py-16">
-        <h1 className="mb-6 text-3xl font-medium tracking-tight">Gallery</h1>
+   <main className="px-4">
+  <div className="mx-auto max-w-[90%] lg:max-w-[95%] pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16">
+    <h1 className="mb-6 text-3xl font-medium tracking-tight">Gallery</h1>
 
         {!artworks ? (
           <div className="p-6 text-sm text-neutral-500">Loading images…</div>

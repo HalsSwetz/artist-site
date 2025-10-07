@@ -26,12 +26,6 @@ export default function ContactPage() {
             </h1>
           </div>
         </div>
-
-        <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center">
-          <span className="text-[10px] sm:text-xs tracking-widest text-white/90 bg-black/30 rounded-full px-3 py-1">
-            SCROLL
-          </span>
-        </div>
       </section>
 
       <section className="flex-1 max-w-2xl mx-auto w-full px-6 py-20">
