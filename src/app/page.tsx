@@ -14,7 +14,7 @@ converge in my painting. There is art to be found everywhere.”`;
 const LANDING_IMAGES = [
   "8129D996-8381-453D-9304-10539891DACC_1_201_a_pzp5yl",
   "EA890C99-286E-4F26-AE05-82C713CEA586_1_201_a_vchdfm",
-  "7048F535-7194-4BE0-9BEE-D37E05232CA9_1_201_a_znalom",
+  "DSC_5427_y5qvfe",
 ];
 
 export default function Home() {
