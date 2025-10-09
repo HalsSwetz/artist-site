@@ -30,14 +30,13 @@ export default function GalleryPage() {
   const [artworks, setArtworks] = useState<Artwork[] | null>(null);
   const [index, setIndex] = useState<number>(-1);
 
-
   useEffect(() => {
-  (async () => {
-    const res = await fetch("/api/artworks?folder=Art Site Gallery", { cache: "no-store" });
-    const json = await res.json();
-    setArtworks(json.artworks || []);
-  })();
-}, []);
+    (async () => {
+      const res = await fetch("/api/artworks?folder=Art Site Gallery", { cache: "no-store" });
+      const json = await res.json();
+      setArtworks(json.artworks || []);
+    })();
+  }, []);
 
   const photos: Photo[] = useMemo(() => {
     if (!artworks) return [];
@@ -49,12 +48,10 @@ export default function GalleryPage() {
     }));
   }, [artworks]);
 
-  const selected = index >= 0 && artworks ? artworks[index] : null;
-
   return (
-   <main className="px-4">
-  <div className="mx-auto max-w-[90%] lg:max-w-[95%] pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16">
-    <h1 className="mb-6 text-3xl font-medium tracking-tight">Gallery</h1>
+    <main className="px-4">
+      <div className="mx-auto max-w-[90%] lg:max-w-[95%] pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16">
+        <h1 className="mb-6 text-3xl font-medium tracking-tight">Gallery</h1>
 
         {!artworks ? (
           <div className="p-6 text-sm text-neutral-500">Loading images…</div>
@@ -75,32 +72,28 @@ export default function GalleryPage() {
           open={index >= 0}
           close={() => setIndex(-1)}
           index={Math.max(0, index)}
-          slides={(artworks || []).map((a) => ({
-            src: full(a.id),
-            alt: a.alt || a.title || a.id,
-            title: a.title || a.id,
-            description: [
+          slides={(artworks || []).map((a) => {
+            const details = [
               a.year ? String(a.year) : null,
               a.medium || null,
               a.dimensions || null
-            ].filter(Boolean).join(" · "),
-          }))}
+            ].filter(Boolean).join(" · ");
+            
+            return {
+              src: full(a.id),
+              alt: a.alt || a.title || a.id,
+              title: "",
+              description: a.title ? `${a.title}\n${details}` : details,
+            };
+          })}
           plugins={[Zoom, Captions]}
           controller={{ closeOnBackdropClick: true }}
           captions={{
-            descriptionTextAlign: "start",
-            descriptionMaxLines: 4,
+            showToggle: false,
+            descriptionTextAlign: "center",
+            descriptionMaxLines: 3,
           }}
         />
-
-        {selected && (
-          <div className="mt-10 rounded-2xl border border-neutral-200 p-6">
-            <h2 className="text-xl font-medium tracking-tight">{selected.title || selected.id}</h2>
-            <p className="mt-1 text-neutral-700">
-              {[selected.year, selected.medium, selected.dimensions].filter(Boolean).join(" · ")}
-            </p>
-          </div>
-        )}
       </div>
     </main>
   );

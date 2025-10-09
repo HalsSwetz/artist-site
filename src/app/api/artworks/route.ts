@@ -23,7 +23,6 @@ export async function GET(req: Request) {
   const folder = searchParams.get("folder");
   const tag = searchParams.get("tag"); 
 
-
   const parts: string[] = ['resource_type:image', 'type:upload'];
   if (folder && folder.trim()) parts.push(`folder:"${folder.trim()}"`);
   if (tag && tag.trim()) parts.push(`tags="${tag.trim()}"`);
@@ -36,7 +35,7 @@ export async function GET(req: Request) {
     for (let i = 0; i < 5; i++) {
       const body = {
         expression,
-        with_field: ["context", "tags"],
+        with_field: ["context"],
         max_results: 100,
         next_cursor,
         sort_by: [{ public_id: "desc" }],
@@ -70,20 +69,26 @@ export async function GET(req: Request) {
       if (!next_cursor) break;
     }
 
+    // Helper function to strip quotes from values
+    const stripQuotes = (val: string | undefined): string | undefined => {
+      if (!val) return val;
+      return val.replace(/^["']|["']$/g, '');
+    };
+
     const artworks = results.map((r) => {
-      const ctx = r.context?.custom || {};
+      const ctx = r.context || {};
+      
       return {
         id: r.public_id as string,
-        alt: (ctx.alt as string) || (r.public_id as string),
-        title: (ctx.title as string) || (r.public_id as string),
+        alt: stripQuotes(ctx.alt as string) || (r.public_id as string),
+        title: stripQuotes(ctx.title as string) || (r.public_id as string),
         year: ctx.year ? Number(ctx.year) : undefined,
-        medium: (ctx.medium as string) || undefined,
-        dimensions: (ctx.dimensions as string) || undefined,
-        collection: (ctx.collection as string) || (r.folder as string) || undefined,
+        medium: stripQuotes(ctx.medium as string) || undefined,
+        dimensions: stripQuotes(ctx.dimensions as string) || undefined,
+        collection: stripQuotes(ctx.collection as string) || (r.folder as string) || undefined,
         width: r.width as number,
         height: r.height as number,
-        // tags: r.tags as string[] | undefined,
-        folder: r.folder as string | undefined, 
+        folder: r.folder as string | undefined,
       };
     });
 
