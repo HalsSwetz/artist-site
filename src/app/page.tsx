@@ -6,10 +6,10 @@ const HERO_ID = "BBE0440C-277E-487F-9901-2F1BC56BCCE4_1_201_a_lciyka";
 
 const bioText = `Henry Stoner was born in Santa Monica, California in 1972. He has an
 MFA from the San Francisco Art Institute (SFAI), and has been painting
-since the late 1980’s. Henry was influenced by the burgeoning tattoo
-and street art culture of San Francisco in the 1990’s and by folk
-artists using found materials. Henry says, “All of my influences
-converge in my painting. There is art to be found everywhere.”`;
+since the late 1980's. Henry was influenced by the burgeoning tattoo
+and street art culture of San Francisco in the 1990's and by folk
+artists using found materials. Henry says, "All of my influences
+converge in my painting. There is art to be found everywhere."`;
 
 const LANDING_IMAGES = [
   "8129D996-8381-453D-9304-10539891DACC_1_201_a_pzp5yl",
@@ -52,9 +52,9 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 order-2 md:order-1 text-left">
             <p className="italic text-lg sm:text-xl text-neutral-700 leading-relaxed mb-2">
-              “I love finding some discarded object or piece of furniture and
+              "I love finding some discarded object or piece of furniture and
               using it to draw inspiration for a piece, to play and find new life
-              in the seemingly useless.”
+              in the seemingly useless."
             </p>
             <p className="italic text-[0.85rem] text-neutral-500">
               –Henry Stoner
@@ -72,7 +72,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pt-6 sm:pt-10 pb-14 sm:pb-18">
+      <section className="mx-auto max-w-6xl px-4 pt-2 sm:pt-4 pb-14 sm:pb-18">
         <div className="flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 transition-transform duration-700 ease-out hover:scale-[1.03] opacity-0 translate-y-6 animate-fade-in-on-scroll">
             <Image
@@ -95,18 +95,18 @@ export default function Home() {
       </section>
 
       <section className="px-0 pt-8 pb-20 sm:pt-12 sm:pb-24">
-        <div className="w-full">
+        <div className="w-full overflow-hidden">
           <Image
             src={cld.full(LANDING_IMAGES[2], 3000, "fit", 85)}
             alt="Landing image 3"
             width={1600}
             height={800}
-            className="w-full h-auto object-cover shadow-md"
+            className="w-full h-auto object-cover shadow-md scale-110"
           />
         </div>
         <div className="text-center mt-10">
           <p className="italic text-lg sm:text-xl text-neutral-700 leading-relaxed mb-2">
-            “Art is a state of mind, not a physical act.”
+            "Art is a state of mind, not a physical act."
           </p>
           <p className="italic text-[0.85rem] text-neutral-500">
             –Henry Stoner
