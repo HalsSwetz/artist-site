@@ -4,42 +4,31 @@ import Image from "next/image";
 import { cld } from "@/lib/cloudinary";
 
 const HERO_ID = "DSC_5435_wjaujb";
-const FOOTER_IMAGE_ID = "DSC_5440_qkkwuz";
 
 export default function ContactPage() {
   return (
-    <main className="relative overflow-hidden">
-      <div className="fixed inset-0 -z-10">
-        <Image
-          src={cld.full(FOOTER_IMAGE_ID, 3000, "fit", 85)}
-          alt="Background artwork"
-          fill
-          sizes="100vw"
-          className="object-cover opacity-65 blur-[1px]"
-          priority
-        />
-        <div className="absolute inset-0 bg-[#dceeff]/40" />
-      </div>
-
-      <section className="relative h-[88svh] sm:h-[92svh] lg:h-[100svh]">
+    <main className="min-h-screen flex flex-col md:flex-row">
+      <section className="relative w-full md:w-1/2 h-[50vh] md:h-screen">
         <Image
           src={cld.full(HERO_ID, 3000, "fit", 85)}
           alt="Contact page hero artwork"
           fill
-          sizes="100vw"
+          sizes="50vw"
           priority
           className="object-cover"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-        <div className="absolute inset-0 flex items-end justify-start pb-16 pl-8 pr-4">
-          <h1 className="text-2xl sm:text-3xl font-extrabold uppercase text-white drop-shadow-lg max-w-xl leading-snug">
-            For pricing and available work please use contact form below
-          </h1>
-        </div>
       </section>
 
-      <section className="flex-1 max-w-2xl mx-auto w-full px-6 py-20">
-        <div className="bg-[#e9ecfa]/95 rounded-xl shadow-lg p-10 sm:p-12 backdrop-blur-sm">
+      <section className="w-full md:w-1/2 bg-[#e6e6fa] flex items-center justify-center px-6 py-12 md:py-20">
+        <div className="w-full max-w-xl">
+          <h1 className="text-3xl sm:text-4xl font-bold uppercase text-neutral-900 mb-4 leading-tight">
+            Contact for available work and pricing
+          </h1>
+          
+          <p className="text-base sm:text-lg text-neutral-700 mb-10">
+            Henry's studio is open to collectors, collaborators, and the curious.
+          </p>
+
           <form
             className="space-y-6"
             onSubmit={async (e) => {
@@ -68,64 +57,54 @@ export default function ContactPage() {
             }}
           >
             <div>
-              <label htmlFor="name" className="block text-sm font-medium">
+              <label htmlFor="name" className="block text-sm font-medium text-neutral-800 mb-2">
                 Name
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                className="mt-1 block w-full rounded-md border border-neutral-300 px-4 py-2 focus:border-black focus:ring-black"
+                className="block w-full rounded-md border-2 border-pink-300 bg-[#d4c5e8] px-4 py-3 focus:border-[#ff1493] focus:ring-2 focus:ring-[#ff1493] focus:outline-none transition"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium">
+              <label htmlFor="email" className="block text-sm font-medium text-neutral-800 mb-2">
                 Email
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                className="mt-1 block w-full rounded-md border border-neutral-300 px-4 py-2 focus:border-black focus:ring-black"
+                className="block w-full rounded-md border-2 border-pink-300 bg-[#d4c5e8] px-4 py-3 focus:border-[#ff1493] focus:ring-2 focus:ring-[#ff1493] focus:outline-none transition"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium">
-                Message
+              <label htmlFor="message" className="block text-sm font-medium text-neutral-800 mb-2">
+                Your Message
               </label>
               <textarea
                 id="message"
                 name="message"
-                rows={5}
-                className="mt-1 block w-full rounded-md border border-neutral-300 px-4 py-2 focus:border-black focus:ring-black"
+                rows={6}
+                className="block w-full rounded-md border-2 border-pink-300 bg-[#d4c5e8] px-4 py-3 focus:border-[#ff1493] focus:ring-2 focus:ring-[#ff1493] focus:outline-none transition resize-none"
                 required
               ></textarea>
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-neutral-800 transition"
-            >
-              Send Message
-            </button>
+            <div className="pt-4">
+              <button
+                type="submit"
+                className="w-full bg-neutral-900 text-white py-3 px-6 rounded-md font-semibold uppercase tracking-wide hover:bg-neutral-700 transition"
+              >
+                Send Message
+              </button>
+            </div>
           </form>
         </div>
-      </section>
-
-      <section className="relative w-full overflow-hidden mt-8">
-        <Image
-          src={cld.full(FOOTER_IMAGE_ID, 2800, "fit", 85)}
-          alt="Henry Stoner artwork"
-          width={2800}
-          height={200}
-          sizes="100vw"
-          className="w-full h-[200px] object-cover object-top"
-          priority
-        />
       </section>
     </main>
   );
