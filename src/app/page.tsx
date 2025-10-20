@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { cld } from "@/lib/cloudinary";
 
-const HERO_ID = "Landing Page/BBE0440C-277E-487F-9901-2F1BC56BCCE4_1_201_a_lciyka";
+const HERO_ID = "Landing_Page/BBE0440C-277E-487F-9901-2F1BC56BCCE4_1_201_a_lciyka";
 
 const bioText = `Henry Stoner was born in Santa Monica, California in 1972. He has an
 MFA from the San Francisco Art Institute (SFAI), and has been painting
@@ -12,9 +12,9 @@ artists using found materials. Henry says, "All of my influences
 converge in my painting. There is art to be found everywhere."`;
 
 const LANDING_IMAGES = [
-  "Landing Page/8129D996-8381-453D-9304-10539891DACC_1_201_a_pzp5yl",
-  "Landing Page/EA890C99-286E-4F26-AE05-82C713CEA586_1_201_a_vchdfm",
-  "Landing Page/DSC_5427_y5qvfe",
+  "Landing_Page/8129D996-8381-453D-9304-10539891DACC_1_201_a_pzp5yl",
+  "Landing_Page/EA890C99-286E-4F26-AE05-82C713CEA586_1_201_a_vchdfm",
+  "Landing_Page/DSC_5427_y5qvfe",
 ];
 
 export default function Home() {
