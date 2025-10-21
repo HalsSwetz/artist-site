@@ -22,7 +22,7 @@ export default function Home() {
     <main>
       <section className="relative h-[88svh] sm:h-[92svh] lg:h-[100svh]">
         <Image
-          src={cld.full(HERO_ID, 3000, "fit", 85)}
+          src={`https://res.cloudinary.com/dghgutvux/image/upload/w_3000,c_fit,f_auto,q_85/${HERO_ID}`}
           alt="Hero artwork"
           fill
           sizes="100vw"
