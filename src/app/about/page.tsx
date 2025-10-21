@@ -1,19 +1,19 @@
 import Image from "next/image";
 import { cld } from "@/lib/cloudinary";
 
-const HERO_ID = "About_Page/DSC_5467_q2frn0";
+const HERO_ID = "DSC_5467_q2frn0";
 
 export default function AboutPage() {
   const sketches = [
-    "About_Page/CECED7C5-6D24-4FE8-BD91-95C85924BBE3_1_201_a_cpggr7",
-    "About_Page/14C86B73-F5B5-4073-AB8E-B848932642DE_1_201_a_p4sdp7",
-    "About_Page/3F59B259-744D-4ECD-8854-DEC8A0D90FB3_1_201_a_ybqhp9",
-    "About_Page/F03634F0-470A-4DA5-8071-45B33F066291_1_201_a_zfeijj",
-    "About_Page/25415251-1ECA-4415-9118-4AB9327CA316_1_201_a_ohajsr",
-    "About_Page/BD798612-A17A-4AE2-BDE5-47B3D395BD19_1_201_a_ocwt54",
-    "About_Page/F7B326B7-E4CC-4A4B-BB10-427636BE3EE6_1_201_a_cr83we",
-    "About_Page/IMG_2179_iq2sjd",
-    "About_Page/421C47F3-A3B5-4368-82FA-A19AC80AE966_1_105_c_zwswph",
+    "CECED7C5-6D24-4FE8-BD91-95C85924BBE3_1_201_a_cpggr7",
+    "14C86B73-F5B5-4073-AB8E-B848932642DE_1_201_a_p4sdp7",
+    "3F59B259-744D-4ECD-8854-DEC8A0D90FB3_1_201_a_ybqhp9",
+    "F03634F0-470A-4DA5-8071-45B33F066291_1_201_a_zfeijj",
+    "25415251-1ECA-4415-9118-4AB9327CA316_1_201_a_ohajsr",
+    "BD798612-A17A-4AE2-BDE5-47B3D395BD19_1_201_a_ocwt54",
+    "F7B326B7-E4CC-4A4B-BB10-427636BE3EE6_1_201_a_cr83we",
+    "IMG_2179_iq2sjd",
+    "421C47F3-A3B5-4368-82FA-A19AC80AE966_1_105_c_zwswph",
   ];
 
   return (
