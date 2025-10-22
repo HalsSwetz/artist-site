@@ -10,19 +10,19 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: "Artist Name",
-    template: "%s · Artist Name",
+    default: "Henry Stoner",
+    template: "%s · Henry Stoner",
   },
-  description: "Image-first portfolio of original works.",
+  description: "Paintings and original works by Henry Stoner, San Francisco-based artist influenced by tattoo culture, street art, and folk art.",
   openGraph: {
-    title: "Artist Name",
-    description: "Image-first portfolio of original works.",
+    title: "Henry Stoner",
+    description: "Paintings and original works by Henry Stoner, San Francisco-based artist influenced by tattoo culture, street art, and folk art.",
     images: ["/opengraph-image.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Artist Name",
-    description: "Image-first portfolio of original works.",
+    title: "Henry Stoner",
+    description: "Paintings and original works by Henry Stoner, San Francisco-based artist influenced by tattoo culture, street art, and folk art.",
     images: ["/opengraph-image.png"],
   },
 };
