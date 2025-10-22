@@ -21,11 +21,14 @@ export default function Home() {
   return (
     <main>
       <section className="relative h-[88svh] sm:h-[92svh] lg:h-[100svh]">
-        <img
-  src={`https://res.cloudinary.com/dghgutvux/image/upload/w_3000,c_fit,f_auto,q_85/${HERO_ID}`}
-  alt="Hero artwork"
-  className="absolute inset-0 w-full h-full object-cover object-[50%_30%]"
-/>
+        <Image
+          src={cld.full(HERO_ID, 3000, "fit", 85)}
+          alt="Hero artwork"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover object-[50%_30%]"
+        />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
 
         <div className="absolute inset-0 flex items-end justify-start pb-16 pl-8 pr-4">
