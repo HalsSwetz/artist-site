@@ -1,36 +1,138 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Henry Stoner Artist Portfolio
+
+A modern, image-first portfolio website built for San Francisco-based artist Henry Stoner, showcasing his paintings influenced by tattoo culture, street art, and folk art.
+
+🌐 **Live Site:** [henrystonerart.com](https://henrystonerart.com)
+
+## Project Overview
+
+This was a freelance commission to create a professional artist portfolio with dynamic image management, SEO optimization, and a functional contact system. The site needed to handle a large gallery of high-resolution artwork while maintaining fast load times and a polished user experience.
+
+## Key Features
+
+- **Dynamic Gallery System:** Masonry layout with lightbox viewing, powered by Cloudinary's Search API for automatic image fetching and metadata display
+- **Cloudinary Integration:** Automated image optimization with on-the-fly transformations for responsive delivery
+- **Custom API Routes:** Built Next.js API endpoints to fetch and process artwork data from Cloudinary with proper error handling
+- **Contact Form:** Integrated Resend API for reliable email delivery with form validation
+- **Responsive Design:** Mobile-first approach using Tailwind CSS, optimized for all screen sizes
+- **SEO & Social Sharing:** Comprehensive meta tags, Open Graph, and Twitter Card configuration
+
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Image CDN:** Cloudinary (with Search API integration)
+- **Email Service:** Resend
+- **Gallery Libraries:** react-photo-album, yet-another-react-lightbox
+- **Deployment:** Vercel with custom domain configuration
+
+## Technical Highlights
+
+### Cloudinary Integration
+Built a custom helper library (`lib/cloudinary.ts`) to generate optimized image URLs with dynamic transformations. The gallery fetches images programmatically from Cloudinary folders via their Search API, with context metadata (title, year, medium, dimensions) automatically pulled and displayed.
+
+### API Route Architecture
+Created `/api/artworks` endpoint that:
+- Authenticates with Cloudinary using API credentials
+- Constructs dynamic search queries based on folder/tag parameters
+- Handles pagination for large image sets
+- Sanitizes and formats metadata for frontend consumption
+- Implements proper error handling and status codes
+
+### Performance Optimization
+- Implemented Next.js Image component for automatic image optimization
+- Configured remote patterns for Cloudinary CDN
+- Used priority loading for above-the-fold images
+- Lazy loading for gallery images
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+
+- Cloudinary account with API credentials
+- Resend API key
 
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/artist-site.git
+cd artist-site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Create a `.env.local` file:
+```env
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+RESEND_API_KEY=your_resend_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+├── app/
+│   ├── about/              # Artist biography and sketchbook showcase
+│   ├── contact/            # Contact form with email integration
+│   ├── gallery/            # Dynamic gallery with lightbox
+│   ├── api/
+│   │   └── artworks/       # Cloudinary API integration endpoint
+│   ├── layout.tsx          # Root layout with SEO metadata
+│   └── page.tsx            # Landing page
+├── components/
+│   └── Header.tsx          # Navigation component
+├── lib/
+│   └── cloudinary.ts       # Cloudinary URL generation helper
+└── public/
+    └── icon.png            # Site favicon
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Deployed on Vercel with automatic CI/CD from the main branch. Custom domain configured using Vercel nameservers for optimal performance.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Environment Variables
+All environment variables from `.env.local` must be added to Vercel project settings for production deployment.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Image Management
+
+Images are managed through Cloudinary's Media Library. To add artwork to the gallery:
+
+1. Upload images to the `Art Site Gallery` folder in Cloudinary
+2. Add context metadata in Cloudinary (title, year, medium, dimensions, collection)
+3. Images automatically appear in the gallery via API fetch
+
+The API route handles folder-based organization and supports filtering by tags.
+
+## Challenges & Solutions
+
+- **Image Path Resolution:** Resolved Next.js image optimization issues with Cloudinary paths by configuring proper remote patterns and building a URL generation helper
+- **Deployment Caching:** Overcame Vercel deployment cache issues from AWS outages by implementing fresh deployment strategy
+- **DNS Configuration:** Successfully integrated custom domain despite complex DNS provider interface
+
+## License
+
+All artwork © Henry Stoner. All rights reserved.
+
+Website code available as open-source template under MIT License.
+
+---
+
+**Developer:** Halsey Swetzoff  
+**Contact:** halseyswetzoff@gmail.com |  [My LinkedIn](https://www.linkedin.com/in/halsey-swetzoff)
+
+**Portfolio:** [My Portfolio Site](https://halsswetz.github.io/portfolio-page-new/)
