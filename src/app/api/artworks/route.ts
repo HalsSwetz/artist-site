@@ -69,7 +69,6 @@ export async function GET(req: Request) {
       if (!next_cursor) break;
     }
 
-    // Helper function to strip quotes from values
     const stripQuotes = (val: string | undefined): string | undefined => {
       if (!val) return val;
       return val.replace(/^["']|["']$/g, '');
