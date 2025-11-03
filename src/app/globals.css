@@ -47,15 +47,11 @@ body {
   animation-range: entry 0% cover 40%;
 }
 
-/* ============================================
-   Gallery Lightbox Overrides
-   ============================================ */
-
 .yarl__root {
   --yarl__color_backdrop: rgba(255, 255, 255, 0.95) !important;
 }
 
-/* Add padding to bottom of slide to make room for caption */
+
 .yarl__slide {
   padding-bottom: 110px !important;
 }
@@ -68,7 +64,7 @@ body {
   display: none !important;
 }
 
-/* Force caption container to be at the bottom, full width */
+
 .yarl__slide_captions_container {
   position: absolute !important;
   bottom: 0 !important;
